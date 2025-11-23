@@ -10,9 +10,68 @@
 
 <body>
 
+    <header>
+        <div>To Do Application</div>
+
+        <div>
+            <span>Welcome, </span>
+            <span id="user_name"></span>
+        </div>
+        <nav>
+            <button id="add_todo_btn" type="button">Add Todo</button>
+            <button id="logout_btn" type="button">Log Out</button>
+        </nav>
+    </header>
+    <main>
+        <section id="todo_container">
+            <!-- todos inserted dynamically from js -->
+        </section>
+    </main>
+    <footer>
+        @copyrigh by Lokesh Rathi
+    </footer>
 
 
-    <script src="./script/app.js"></script>
+    <!-- add form modal -->
+
+    <dialog id="add_form_modal">
+        <span class="close_btn" id="close_btn">X</span>
+        <h2>Add Todo</h2>
+
+        <form action="">
+            <div>
+                <label for="task_title">Task Title*</label>
+                <input type="text" name="task_title" id="task_title" placeholder="task_title">
+            </div>
+            <div>
+                <label for="description">Description</label>
+                <textarea name="description" id="description" cols="30" rows="10"></textarea>
+            </div>
+            <div>
+                <label for="deadline">Deadline*</label>
+                <input type="datetime-local" name="deadline" id="deadline">
+            </div>
+            <div>
+                <label for="priority">Priority*</label>
+                <select name="priority" id="priority">
+                    <option value="none">Select Priority</option>
+                    <option value="P1">Critical</option>
+                    <option value="P2">High</option>
+                    <option value="P3">Medium</option>
+                    <option value="P4">Low</option>
+                </select>
+            </div>
+
+            <button type="submit">Add Todo</button>
+        </form>
+    </dialog>
+
+    <script src="./script/app.js">
+
+
+
+
+    </script>
 
 </body>
 
