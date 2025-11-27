@@ -31,7 +31,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     localStorage.setItem("user_email", userexits.email);
-    localStorage.setItem("name", userexits.name);
     localStorage.setItem("loggedIn", true);
 
     window.location.href = "index.html";
