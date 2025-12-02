@@ -1,4 +1,5 @@
 import { addTodo } from "./addTodo.js";
+import renderTodo from "./renderTodo.js";
 
 console.log(window);
 
@@ -59,20 +60,6 @@ document.addEventListener("DOMContentLoaded", () => {
     add_form_modal.close();
   });
 
-  //  showing todo list
-
-  const todo_container = document.getElementById(
-    "todo_container"
-  );
-
-  if (user_data.todo.length > 0) {
-    //  if data avaliable map it in html
-  } // if not
-  else {
-    todo_container.innerHTML =
-      "<p> No Task available, Add task to see one </p>";
-  }
-
   //  add todo logic
   document
     .getElementById("add_todo_form")
@@ -84,5 +71,10 @@ document.addEventListener("DOMContentLoaded", () => {
         "userList",
         JSON.stringify(userList)
       );
+
+      renderTodo(user_data.todo);
     });
+
+  //  show todo
+  renderTodo(user_data.todo);
 });
