@@ -49,7 +49,7 @@
             </div>
             <div>
                 <label for="deadline">Deadline*</label>
-                <input type="datetime-local" name="deadline" id="deadline">
+                <input type="datetime-local" name="deadline" id="deadline" max="2026-12-31T00:00">
             </div>
             <div>
                 <label for="priority">Priority*</label>
@@ -66,7 +66,39 @@
         </form>
     </dialog>
 
+    <!-- edit form modal -->
 
+    <dialog id="edit_form_modal">
+        <span class="edit_close_btn" id="edit_close_btn">X</span>
+        <h2>Edit Todo</h2>
+
+        <form id="edit_todo_form">
+            <div>
+                <label for="edit_task_title">Task Title*</label>
+                <input type="text" name="task_title" id="edit_task_title" placeholder="task_title">
+            </div>
+            <div>
+                <label for="edit_description">Description</label>
+                <textarea name="description" id="edit_description" cols="30" rows="10"></textarea>
+            </div>
+            <div>
+                <label for="edit_deadline">Deadline*</label>
+                <input type="datetime-local" name="deadline" id="edit_deadline" max="2026-12-31T00:00">
+            </div>
+            <div>
+                <label for="edit_priority">Priority*</label>
+                <select name="priority" id="edit_priority">
+                    <option value="none">Select Priority</option>
+                    <option value="P1">Critical</option>
+                    <option value="P2">High</option>
+                    <option value="P3">Medium</option>
+                    <option value="P4">Low</option>
+                </select>
+            </div>
+
+            <button type="submit">Edit Todo</button>
+        </form>
+    </dialog>
 
     <!-- show todo template -->
 
@@ -85,7 +117,7 @@
             <div>
                 <input type="checkbox" name="" id="">
             </div>
-            <button>Edit</button>
+            <button class="edit_btn">Edit</button>
         </div>
     </template>
 

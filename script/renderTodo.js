@@ -1,3 +1,5 @@
+import { editTodo } from "./editTodo.js";
+
 const todo_container = document.getElementById(
   "todo_container"
 );
@@ -18,7 +20,11 @@ function renderTodo(todoList = []) {
     let clone = todo_card_template.content.cloneNode(true);
     let h4 = clone.querySelector("h4");
     let p = clone.querySelector("p");
-
+    clone
+      .querySelector(".edit_btn")
+      .addEventListener("click", () => {
+        editTodo(el);
+      });
     h4.innerText = el.title;
     p.innerText = el.deadline;
 

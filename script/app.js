@@ -1,4 +1,5 @@
 import { addTodo } from "./addTodo.js";
+import { editFormMethod } from "./editTodo.js";
 import renderTodo from "./renderTodo.js";
 
 console.log(window);
@@ -10,6 +11,10 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
+  //  datetime logic
+  let deadline = document.getElementById("deadline");
+  const now = new Date().toISOString().slice(0, 16);
+  deadline.min = now;
   // logout logic
   document
     .getElementById("logout_btn")
@@ -77,4 +82,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //  show todo
   renderTodo(user_data.todo);
+
+  //  edit form logic
+  const edit_todo_form = document.getElementById(
+    "edit_todo_form"
+  );
+
+  edit_todo_form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    let newTodo = editFormMethod(user_data.todo);
+    user_data.todo = newTodo;
+    userList[indexValue] = user_data;
+    localStorage.setItem(
+      "userList",
+      JSON.stringify(userList)
+    );
+
+    renderTodo(user_data.todo);
+  });
 });
